@@ -17,15 +17,15 @@
 #       -  always
 
 
-# - name: include env-vars file
-#   import_playbook: ../dynamic-assignments/env-vars.yml
-#   tags:
-#      - always
+- name: include env-vars file
+  import_playbook: ../dynamic-assignments/env-vars.yml
+  tags:
+     - always
 
-# - name: import db files
-#   import_playbook: ../static-assignments/db.yml
+- name: import db files
+  import_playbook: ../static-assignments/db.yml
 
-# - name: Loadbalancers assignment
-#   import_playbook: ../static-assignments/loadbalancers.yml
-#   when: load_balancer_is_required 
+- name: Loadbalancers assignment
+  import_playbook: ../static-assignments/loadbalancers.yml
+  when: load_balancer_is_required 
    
