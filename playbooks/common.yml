@@ -1,6 +1,6 @@
 ---
-- name: update web and db servers
-  hosts: webservers, db
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -9,6 +9,16 @@
       yum:
         name: wireshark
         state: latest
+    - name: Create a directory if it does not exist
+      file:
+        path: /home/ec2-user/test
+        state: directory
+        mode: '0755'
+    - name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
+      file:
+        path: /home/ec2-user/test/devops.txt
+        state: touch
+        mode: u=rw,g=r,o=r    
 
 - name: update LB server
   hosts: lb
@@ -24,3 +34,13 @@
       apt:
         name: wireshark
         state: latest
+    - name: Create a directory if it does not exist
+      file:
+        path: /home/ubuntu/test
+        state: directory
+        mode: '0755'
+    - name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
+      file:
+        path: /home/ubuntu/test/devops.txt
+        state: touch
+        mode: u=rw,g=r,o=r
