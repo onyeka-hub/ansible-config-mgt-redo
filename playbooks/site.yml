@@ -1,4 +1,20 @@
 ---
+################################################################
+# Configurations for project 14
+################################################################
+
+- hosts: nginx
+- name: nginx assignment
+  import_playbook: ../static-assignments/nginx-proxy.yml
+
+
+- name: import db files
+  import_playbook: ../static-assignments/db.yml
+
+################################################################
+# Configurations for project 13
+################################################################
+
 # - name: importing common file
 #   become: true
 #   import_playbook: ../static-assignments/common.yml
@@ -8,16 +24,15 @@
 # - name: uat-webserver assignment
 #   import_playbook: ../static-assignments/uat-webservers.yml
 
-
-- name: include env-vars file
-  import_playbook: ../dynamic-assignments/env-vars.yml
-  tags:
-     - always
+# - name: include env-vars file
+#   import_playbook: ../dynamic-assignments/env-vars.yml
+#   tags:
+#      - always
 
 # - name: import db files
 #   import_playbook: ../static-assignments/db.yml
 
-- name: Loadbalancers assignment
-  import_playbook: ../static-assignments/loadbalancers.yml
-  when: load_balancer_is_required 
+# - name: Loadbalancers assignment
+#   import_playbook: ../static-assignments/loadbalancers.yml
+#   when: load_balancer_is_required 
    
