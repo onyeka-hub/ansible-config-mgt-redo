@@ -3,13 +3,13 @@
 # Configurations for project 14
 ################################################################
 
-- hosts: nginx
-- name: nginx assignment
-  import_playbook: ../static-assignments/nginx-proxy.yml
+# - hosts: nginx
+# - name: nginx assignment
+#   import_playbook: ../static-assignments/nginx-proxy.yml
 
 
-- name: import db files
-  import_playbook: ../static-assignments/db.yml
+# - name: import db files
+#   import_playbook: ../static-assignments/db.yml
 
 - hosts: artifactory
 - name: artifactory assignment
