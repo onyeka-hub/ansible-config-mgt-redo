@@ -8,12 +8,16 @@
 #   import_playbook: ../static-assignments/nginx-proxy.yml
 
 
-- name: import db files
-  import_playbook: ../static-assignments/db.yml
+# - name: import db files
+#   import_playbook: ../static-assignments/db.yml
 
 # - hosts: artifactory
 # - name: artifactory assignment
 #   import_playbook: ../static-assignments/artifactory.yml
+
+- hosts: sonar
+- name: sonar assignment
+  import_playbook: ../static-assignments/sonar.yml
 
 ################################################################
 # Configurations for project 13
