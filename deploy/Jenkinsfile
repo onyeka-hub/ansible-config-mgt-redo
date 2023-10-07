@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-      ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
+      ANSIBLE_CONFIG="/home/ubuntu/ansible-config-mgt-redo/deploy/ansible.cfg"
     }
 
   parameters {
@@ -24,12 +24,12 @@ pipeline {
          }
        }
 
-      stage('Prepare Ansible For Execution') {
-        steps {
-          sh 'echo ${WORKSPACE}' 
-          sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/ansible.cfg'  
-        }
-     }
+    //   stage('Prepare Ansible For Execution') {
+    //     steps {
+    //       sh 'echo ${WORKSPACE}' 
+    //       sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/ansible.cfg'  
+    //     }
+    //  }
 
       stage('Run Ansible playbook') {
         steps {
