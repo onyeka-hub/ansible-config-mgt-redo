@@ -11,17 +11,17 @@
 # - name: import db files
 #   import_playbook: ../static-assignments/db.yml
 
-- hosts: todo
-- name: Deploy the todo application
-  import_playbook: ../static-assignments/deployment.yml
+# - hosts: todo
+# - name: Deploy the todo application
+#   import_playbook: ../static-assignments/deployment.yml
 
 # - hosts: artifactory
 # - name: artifactory assignment
 #   import_playbook: ../static-assignments/artifactory.yml
 
-# - hosts: sonar
-# - name: sonar assignment
-#   import_playbook: ../static-assignments/sonar.yml
+- hosts: sonar
+- name: sonar assignment
+  import_playbook: ../static-assignments/sonar.yml
 
 ################################################################
 # Configurations for project 13
