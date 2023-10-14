@@ -118,7 +118,7 @@ mysql_databases:
 #     encoding: utf8
 #     replicate: 1     
 
-Users.
+# Users.
 mysql_user: 
   - name: webaccess
     host: 0.0.0.0
