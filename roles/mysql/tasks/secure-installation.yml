@@ -1,6 +1,6 @@
 ---
 - name: Ensure default user is present.
-  community.mysql.mysql_user:
+  mysql_user:
     name: "{{ mysql_user_name }}"
     host: 'localhost'
     password: "{{ mysql_user_password }}"
