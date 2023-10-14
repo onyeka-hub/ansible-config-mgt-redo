@@ -2,8 +2,13 @@ pipeline {
   agent any
 
   environment {
-      ANSIBLE_CONFIG="/home/ubuntu/ansible-config-mgt-redo/deploy/ansible.cfg"
+      ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
     }
+
+  // This is used for ubuntu server
+  // environment {
+  //     ANSIBLE_CONFIG="/home/ubuntu/ansible-config-mgt-redo/deploy/ansible.cfg"
+  //   }
 
   parameters {
       string(name: 'inventory', defaultValue: 'dev.yml',  description: 'This is the inventory file for the environment to deploy configuration')
@@ -21,6 +26,13 @@ pipeline {
        stage('Checkout SCM') {
          steps{
            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'private-key', url: 'https://github.com/onyeka-hub/ansible-config-mgt-redo.git']])
+         }
+       }
+
+       stage('Prepare Ansible For Execution') {
+         steps {
+           sh 'echo ${WORKSPACE}' 
+           sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/ansible.cfg'  
          }
        }
 
