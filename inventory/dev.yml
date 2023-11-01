@@ -1,8 +1,8 @@
 [nginx]
-172.31.18.83 ansible_ssh_user='ec2-user'
+172.31.43.254 ansible_ssh_user='ec2-user'
 
 [db]
-172.31.27.34 ansible_ssh_user='ubuntu'
+172.31.26.97 ansible_ssh_user='ubuntu'
 
 # [todo]
 # 172.31.29.203 ansible_ssh_user='ec2-user'
