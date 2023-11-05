@@ -7,13 +7,13 @@
 # - name: nginx assignment
 #   import_playbook: ../static-assignments/nginx-proxy.yml
 
-- hosts: db
-- name: database assignment
-  import_playbook: ../static-assignments/db.yml
+# - hosts: db
+# - name: database assignment
+#   import_playbook: ../static-assignments/db.yml
 
-# - hosts: todo
-# - name: Deploy the todo application
-#   import_playbook: ../static-assignments/deployment.yml
+- hosts: todo
+- name: Deploy the todo application
+  import_playbook: ../static-assignments/deployment.yml
 
 # - hosts: artifactory
 # - name: artifactory assignment
