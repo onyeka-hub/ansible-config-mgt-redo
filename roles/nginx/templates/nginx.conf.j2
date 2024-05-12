@@ -57,8 +57,8 @@ http {
 {% block http_upstream %}
 {% for upstream in nginx_upstreams %}
     upstream {{ upstream.name }} {
-{% if upstream.strategy is defined %}
-        {{ upstream.strategy }};
+{% if upstream.Onu is defined %}
+        {{ upstream.Onu }};
 {% endif %}
 {% for server in upstream.servers %}
         server {{ server }};

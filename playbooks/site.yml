@@ -1,9 +1,8 @@
 ---
-# - name: importing common file
-#   become: true
-#   import_playbook: ../static-assignments/common.yml
-#   tags:
-#     - always
+- name: importing common file
+  import_playbook: ../static-assignments/common.yml
+  tags:
+    - always
 
 # - name: uat-webserver assignment
 #   import_playbook: ../static-assignments/uat-webservers.yml
@@ -14,8 +13,8 @@
   tags:
      - always
 
-# - name: import db files
-#   import_playbook: ../static-assignments/db.yml
+- name: import db files
+  import_playbook: ../static-assignments/db.yml
 
 - name: Loadbalancers assignment
   import_playbook: ../static-assignments/loadbalancers.yml
